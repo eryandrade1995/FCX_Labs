@@ -5,12 +5,6 @@
 
 <div class="text-center">
 
-    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <a class="btn btn-primary" asp-controller="User" asp-action="Create" role="button">Add</a>
-    </div>
-
-    <br />
-
     @if (TempData["MensagemErro"] != null)
     {
         <div class="alert alert-danger" role="alert">
@@ -22,10 +16,10 @@
 
     <br />
 
-    <h1 class="display-4">usuários</h1>
+    <h1 class="display-4">Usuários</h1>
 
     <table id="table-users" class="display" style="width:100%">
-        <thead>
+        <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nome</th>
@@ -58,7 +52,7 @@
                             <div class="btn-group" role="group">
                                 <a role="button" asp-action="Editar" asp-controller="User" asp-route-id="@usuario.id"
                                     class="btn btn-primary">Editar</a>
-                                <a role="button" asp-action="ApagarConfirmacao" asp-controller="Usuario"
+                                <a role="button" asp-action="ApagarConfirmacao" asp-controller="User"
                                     asp-route-id="@usuario.id" class="btn btn-danger">Apagar</a>
                             </div>
                         </td>

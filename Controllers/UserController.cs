@@ -64,12 +64,13 @@ namespace FCX_Labs.Controllers
         {
             try
             {
+                Console.Write(usuario);
                 if (ModelState.IsValid)
                 {
                     usuario = _usuarioRepositorio.Add(usuario);
 
                     TempData["MensagemSucesso"] = "Usuário cadastrado com sucesso!";
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "Home");
                 }
 
                 return View(usuario);
@@ -77,7 +78,7 @@ namespace FCX_Labs.Controllers
             catch (Exception erro)
             {
                 TempData["MensagemErro"] = $"Ops, não conseguimos cadastrar seu usuário, tente novamante, detalhe do erro: {erro.Message}";
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
         }
 

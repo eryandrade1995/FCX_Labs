@@ -1,16 +1,17 @@
 @using FCX_Labs.Enums
 @model User
 @{
-    ViewData["Title"] = "Cadastro";
+    ViewData["Title"] = "Editar Cadastro";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Cadastrar usuário</h1>
+    <h1 class="display-4">Editar Cadastro</h1>
 </div>
 
 
-<form asp-controller="User" asp-action="Create" method="post">
+<form asp-controller="User" asp-action="Editar" method="post">
 
+    <input type="hidden" asp-for="id" />
     <div class="form-group">
         <label for="name" class="form-label">Nome</label>
         <input type="text" asp-for="name" class="form-control">
@@ -39,13 +40,7 @@
         @Html.ValidationMessageFor(x => x.profile)
     </div>
 
-    <div class="form-group">
-        <label for="password" class="form-label">Senha</label>
-        <input type="password" asp-for="password" class="form-control">
-        @Html.ValidationMessageFor(x => x.password)
-    </div>
-
-    <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
-    <a class="btn btn-secondary btn-block" asp-action="Index" asp-controller="Usuario" role="button">Voltar</a>
+    <button type="submit" class="btn btn-primary btn-block">Editar</button>
+    <a class="btn btn-secondary btn-block" asp-action="Index" asp-controller="User" role="button">Voltar</a>
 
 </form>

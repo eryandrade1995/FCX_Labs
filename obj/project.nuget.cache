@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "z2lfX54dmiWXDIfPfzKnRXFGw9qgbUrmpR3XuF2QQVzlfkNbtkVgZLH+rq6T1PURx+LDdsiicUyTv47o59W3LQ==",
+  "dgSpecHash": "W8I7xvH4Aw8d6EyAeIazLvjyvgV0aNJPfM5OMAu6Ut7m3p8L/FyaEuOWGKMXPZOCB64HgTp3+IGBPTwgncJb2w==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Projects\\FCX_Labs\\FCX_Labs.csproj",
   "expectedPackageFiles": [
@@ -100,7 +100,11 @@
     "C:\\Users\\user\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\user\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.32\\microsoft.netcore.app.host.win-x64.3.1.32.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512"
   ],
   "logs": []
 }

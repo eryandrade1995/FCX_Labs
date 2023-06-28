@@ -1,0 +1,16 @@
+@model User
+@{
+    ViewData["Title"] = "Apagar Cadastro?";
+}
+<div class="row">
+    <div class="col-md-12" id="login-wraper" style="background: none repeat scroll 0 0 rgba(100%, 100%, 100%, 0.4);">
+        <div class="text-center">
+            <h1>Deseja realmente apagar @Model.name?</h1>
+        </div>
+
+        <a class="btn btn-primary btn-block" asp-action="Index" asp-controller="User" role="button">Cancelar
+            exclusão</a>
+        <a class="btn btn-danger btn-block" asp-action="Apagar" asp-controller="User" asp-route-id="@Model.id"
+            role="button">Confirmar exclusão</a>
+    </div>
+</div>
