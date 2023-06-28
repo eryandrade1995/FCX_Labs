@@ -23,7 +23,7 @@ em appsetting.json
 $ dotnet run
 
 Tecnologias Utilizadas
-.NET 5
-jQuery
-Bootstrap
-SqlServer
+* .NET 5
+* jQuery
+* Bootstrap
+* SqlServer
