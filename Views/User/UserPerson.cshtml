@@ -1,0 +1,28 @@
+@model List<Person>
+
+<table id="table-person-user" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var person in Model)
+            {
+                <tr>
+                    <th scope="row">@person.id</th>
+                    <td>@person.name</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr class="odd">
+                <td valign="top" colspan="4">Nenhum contato encontrado</td>
+            </tr>
+        }
+    </tbody>
+</table>

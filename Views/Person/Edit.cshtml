@@ -1,0 +1,81 @@
+@model Person;
+@{
+    ViewData["Title"] = "Alterar Cadastro";
+
+}
+<div class="text-center">
+
+    <h2>@ViewBag.Title</h2>
+    <h3>@ViewBag.Message</h3>
+</div>
+<div class="text-center">
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-controller="Person" asp-action="Edit" method="post">
+                <input type="hidden" asp-for="id">
+                <div class="row">
+                    <div class="form-group col-md-12" style="text-align:left;">
+                        <label for="txt_name">Nome:</label>
+                        <input type="text" asp-for="name" class="form-control input-xs" maxlength="150">
+                        @Html.ValidationMessageFor(x => x.name)
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3" style="text-align:left">
+                        <label for="txt_cpf">CPF:</label>
+                        <input type="text" asp-for="cpf" class="form-control input-xs cpf">
+                    </div>
+                    <div class="col-md-3" style="text-align:left">
+                        <label for="txt_birth">Data de Nascimento:</label>
+                        <input type="date" asp-for="birth" class="form-control input-xs date" placeholder="MM/DD/YYYY">
+                    </div>
+                    <div class="col-md-3" style="text-align:left">
+                        <label for="txt_email">E-Mail:</label>
+                        <input type="text" asp-for="email" class="form-control input-xs" maxlength="30">
+                        @Html.ValidationMessageFor(x => x.email)
+
+                    </div>
+                    <div class="col-md-3" style="text-align:left">
+                        <label for="txt_number">Telefone:</label>
+                        <input type="tel" asp-for="phone" class="form-control input-xs">
+                        @Html.ValidationMessageFor(x => x.phone)
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" style="text-align:left">
+                        <label for="txt_mom">Nome da Mãe:</label>
+                        <input type="text" asp-for="mother_name" class="form-control input-xs" maxlength="150">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4" style="text-align:left">
+                        <label for="dpl_stats">Status:</label>
+                        @* @Html.Label("desc-dpl_stats", "Status:", new { @class = "form-label" }) *@
+                        <select asp-for="stats" class="form-control">
+                            <option value="">-</option>
+                            <option value="Ativo">Ativo</option>
+                            <option value="Inativo">Inativo</option>
+                            <option value="Bloqueado">Bloqueado</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4" style="text-align:left">
+                        <label for="txt_add_date">Data de Inclusão:</label>
+                        <input readonly type="date" asp-for="insert_date" class="form-control input-xs date"
+                            placeholder="MM/DD/YYYY">
+                    </div>
+                    <div class="col-md-4" style="text-align:left">
+                        <label for="txt_alteration_date">Data de Alteração:</label>
+                        <input readonly type="date" asp-for="alteration_date" class="form-control input-xs date"
+                            placeholder="MM/DD/YYYY">
+                    </div>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a type="submit" class="btn btn-secundary" asp-controller="Person" asp-action="Index"
+                    role="button">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
