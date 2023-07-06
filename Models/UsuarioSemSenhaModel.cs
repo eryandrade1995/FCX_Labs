@@ -6,15 +6,15 @@ namespace FCX_Labs.Models
 {
     public class UsuarioSemSenhaModel
     {
-        public int Id { get; set; }
+        public int id { get; set; }
         [Required(ErrorMessage = "Digite o nome do usuário")]
-        public string Nome { get; set; }
+        public string name { get; set; }
         [Required(ErrorMessage = "Digite o login do usuário")]
-        public string Login { get; set; }
+        public string login { get; set; }
         [Required(ErrorMessage = "Digite o e-mail do usuário")]
         [EmailAddress(ErrorMessage = "O e-mail informado não é valido!")]
-        public string Email { get; set; }
+        public string email { get; set; }
         [Required(ErrorMessage = "Informe o perfil do usuário")]
-        public ProfileEnum? Perfil { get; set; }
+        public ProfileEnum? profile { get; set; }
     }
 }

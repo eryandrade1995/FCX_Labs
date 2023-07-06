@@ -42,6 +42,26 @@ namespace FCX_Labs.Global.Utilities
             return day + "/" + month + "/" + year;
 
         }
+        public static string checkPass(string pass)
+        {
+
+            string msg = string.Empty;
+
+            if (pass.Length < 6)
+            {
+                msg = $"Sua senha deve conter no mínimo 6 caracteres!";
+            }
+            if (!pass.Any(c => char.IsDigit(c)))
+            {
+                msg = $"Sua senha deve conter no mínimo 1 número!";
+            }
+            if (!pass.Any(c => char.IsUpper(c)))
+            {
+                msg = $"Sua senha deve conter no mínimo 1 letra maiúscula!";
+            }
+            return msg;
+        }
+
     }
 
 

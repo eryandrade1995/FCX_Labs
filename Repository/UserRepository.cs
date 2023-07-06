@@ -50,7 +50,6 @@ namespace FCX_Labs.Repository
         public User Add(User user)
         {
             user.insert_date = DateTime.Now;
-            user.SetSenhaHash();
             _dataContext.Users.Add(user);
             _dataContext.SaveChanges();
             return user;
@@ -71,7 +70,7 @@ namespace FCX_Labs.Repository
                 _dataContext.Users.Update(u);
                 _dataContext.SaveChanges();
             }
-           return u;
+            return u;
         }
 
         public User ModifyPass(ModifyPassModel modifyPassModel)
@@ -83,12 +82,20 @@ namespace FCX_Labs.Repository
             if (u.password != modifyPassModel.old_pass) throw new Exception("Senha atual não confere!");
 
             if (u.password == modifyPassModel.new_pass) throw new Exception("Nova senha deve ser diferente da senha atual!");
+            string invalid = string.Empty;
+            invalid = FCX_Labs.Global.Utilities.Functions.checkPass(modifyPassModel.new_pass) != string.Empty ? FCX_Labs.Global.Utilities.Functions.checkPass(modifyPassModel.new_pass) : "";
+            if (string.IsNullOrEmpty(invalid))
+            {
+                u.alteration_date = DateTime.Now;
 
-            u.SetNovaSenha(modifyPassModel.new_pass);
-            u.alteration_date = DateTime.Now;
+                _dataContext.Users.Update(u);
+                _dataContext.SaveChanges();
+            }
+            else
+            {
+                throw new Exception(invalid);
+            }
 
-            _dataContext.Users.Update(u);
-            _dataContext.SaveChanges();
 
             return u;
         }

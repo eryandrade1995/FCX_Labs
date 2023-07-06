@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Configuration;
+using System;
 using System.Net;
 using System.Net.Mail;
 
@@ -22,6 +23,11 @@ namespace FCX_Labs.Helper
                 string username = _configuration.GetValue<string>("SMTP:UserName");
                 string senha = _configuration.GetValue<string>("SMTP:Senha");
                 int porta = _configuration.GetValue<int>("SMTP:Porta");
+                Console.WriteLine(host);
+                Console.WriteLine(nome);
+                Console.WriteLine(username);
+                Console.WriteLine(senha);
+                Console.WriteLine(porta);
 
                 MailMessage mail = new MailMessage()
                 {

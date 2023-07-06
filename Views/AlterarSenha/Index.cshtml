@@ -19,21 +19,21 @@
 
             <div class="form-group">
                 <label for="senhaAtual" class="form-label">Senha Atual</label>
-                <input type="password" asp-for="old_pass" class="form-control"
+                <input type="password" asp-for="old_pass" class="form-control text-center"
                     placeholder="Digite a senha atual do usuário">
                 @Html.ValidationMessageFor(x => x.old_pass)
             </div>
 
             <div class="form-group">
                 <label for="novaSenha" class="form-label">Nova Senha</label>
-                <input type="password" asp-for="new_pass" class="form-control"
+                <input type="password" asp-for="new_pass" class="form-control text-center"
                     placeholder="Digite a nova senha do usuário">
                 @Html.ValidationMessageFor(x => x.new_pass)
             </div>
 
             <div class="form-group">
                 <label for="confirmarSenha" class="form-label">Confirmar Nova Senha</label>
-                <input type="password" asp-for="ConfirmPass" class="form-control"
+                <input type="password" asp-for="ConfirmPass" class="form-control text-center"
                     placeholder="Digite a confirmação da nova senha do usuário">
                 @Html.ValidationMessageFor(x => x.ConfirmPass)
             </div>

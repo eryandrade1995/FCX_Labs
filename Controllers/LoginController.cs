@@ -20,13 +20,13 @@ namespace FCX_Labs.Controllers
         {
             _usuarioRepositorio = usuarioRepositorio;
             _sessao = sessao;
-            _email = email; 
+            _email = email;
 
         }
 
         public IActionResult Index()
         {
-            if(_sessao.GetSession() != null) return RedirectToAction("Index", "Home");
+            if (_sessao.GetSession() != null) return RedirectToAction("Index", "Home");
 
             return View();
         }
@@ -84,12 +84,12 @@ namespace FCX_Labs.Controllers
                 if (ModelState.IsValid)
                 {
                     User usuario = _usuarioRepositorio.SearchByEmailLog(redefinirSenhaModel.email, redefinirSenhaModel.login);
-
+                    Console.Write(usuario.email);
                     if (usuario != null)
                     {
                         string novaSenha = usuario.GerarNovaSenha();
                         string mensagem = $"Sua nova senha é: {novaSenha}";
-
+                        Console.WriteLine(mensagem);
                         bool emailEnviado = _email.Enviar(usuario.email, "Sistema de Contatos - Nova Senha", mensagem);
 
                         if (emailEnviado)
@@ -102,7 +102,7 @@ namespace FCX_Labs.Controllers
                             TempData["MensagemErro"] = $"Não conseguimos enviar e-mail. Por favor, tente novamente.";
                         }
 
-                        return RedirectToAction("Index","Login");
+                        return RedirectToAction("Index", "Login");
                     }
 
                     TempData["MensagemErro"] = $"Não conseguimos redefinir sua senha. Por favor, verifique os dados informados.";
@@ -116,7 +116,7 @@ namespace FCX_Labs.Controllers
                 return RedirectToAction("Index");
             }
         }
-        
-      
+
+
     }
 }

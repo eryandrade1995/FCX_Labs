@@ -57,19 +57,19 @@ namespace FCX_Labs.Controllers
         {
             try
             {
-                
-                    _personRepository.Add(person);
-                    return RedirectToAction("Index");
-                
-                   
-                    return View(person);
+
+                _personRepository.Add(person);
+                return RedirectToAction("Index");
+
+
+                // return View(person);
             }
             catch (System.Exception err)
             {
                 TempData["MensagemErro"] = $"Houve um erro ao tentar realizar o cadastro. {err.Message}";
-                return RedirectToAction("Index");               
+                return RedirectToAction("Index");
             }
-            
+
         }
 
         [HttpPost]
@@ -80,16 +80,16 @@ namespace FCX_Labs.Controllers
                 if (ModelState.IsValid)
                 {
                     _personRepository.Update(person);
-                    return RedirectToAction("Index");               
+                    return RedirectToAction("Index");
                 }
                 return View("Edit", person);
             }
             catch (System.Exception err)
             {
                 TempData["MensagemErro"] = $"Houve um erro ao tentar realizar a alteração. {err.Message}";
-                return RedirectToAction("Index");               
+                return RedirectToAction("Index");
             }
-            
+
         }
     }
 }

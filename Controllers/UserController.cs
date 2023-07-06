@@ -1,3 +1,4 @@
+using System.Linq;
 using FCX_Labs.Models;
 using FCX_Labs.Repository;
 using Microsoft.AspNetCore.Mvc;
@@ -58,21 +59,30 @@ namespace FCX_Labs.Controllers
             }
         }
 
-        
+
         [HttpPost]
         public IActionResult Criar(User usuario)
         {
             try
             {
-                Console.Write(usuario);
                 if (ModelState.IsValid)
                 {
-                    usuario = _usuarioRepositorio.Add(usuario);
+                    string invalid = string.Empty;
+                    invalid = FCX_Labs.Global.Utilities.Functions.checkPass(usuario.password) != string.Empty ? FCX_Labs.Global.Utilities.Functions.checkPass(usuario.password) : "";
 
-                    TempData["MensagemSucesso"] = "Usuário cadastrado com sucesso!";
-                    return RedirectToAction("Index", "Home");
+
+                    if (string.IsNullOrEmpty(invalid))
+                    {
+                        usuario = _usuarioRepositorio.Add(usuario);
+                        TempData["MensagemSucesso"] = "Usuário cadastrado com sucesso!";
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        TempData["MensagemErro"] = invalid;
+                    }
+                    return View(usuario);
                 }
-
                 return View(usuario);
             }
             catch (Exception erro)
@@ -89,23 +99,19 @@ namespace FCX_Labs.Controllers
             {
                 User usuario = null;
 
-                if (ModelState.IsValid)
+                usuario = new User()
                 {
-                    usuario = new User()
-                    {
-                        id = usuarioSemSenhaModel.Id,
-                        name = usuarioSemSenhaModel.Nome,
-                        login = usuarioSemSenhaModel.Login,
-                        email = usuarioSemSenhaModel.Email,
-                        profile = usuarioSemSenhaModel.Perfil
-                    };
+                    id = usuarioSemSenhaModel.id,
+                    name = usuarioSemSenhaModel.name,
+                    login = usuarioSemSenhaModel.login,
+                    email = usuarioSemSenhaModel.email,
+                    profile = usuarioSemSenhaModel.profile
+                };
 
-                    usuario = _usuarioRepositorio.Update(usuario);
-                    TempData["MensagemSucesso"] = "Usuário alterado com sucesso!";
-                    return RedirectToAction("Index");
-                }
+                usuario = _usuarioRepositorio.Update(usuario);
+                TempData["MensagemSucesso"] = "Usuário alterado com sucesso!";
+                return RedirectToAction("Index");
 
-                return View(usuario);
             }
             catch (Exception erro)
             {

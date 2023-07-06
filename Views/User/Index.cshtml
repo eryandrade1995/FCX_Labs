@@ -27,7 +27,7 @@
                 <th scope="col">Email</th>
                 <th scope="col">Perfil</th>
                 <th scope="col">Total de Contatos</th>
-                <th scope="col">Data de cadastro</th>
+                <th scope="col">Data de Alteração</th>
                 <th scope="col"></th>
             </tr>
         </thead>
@@ -47,7 +47,13 @@
                                 @(usuario.Person != null && usuario.Person.Any() ? usuario.Person.Count() : 0)
                             </a>
                         </td>
-                        <td>@usuario.alteration_date</td>
+                        @if (usuario.alteration_date_text == "01/01/1")
+                        {
+                            <td></td>
+                        }else
+                        {
+                            <td>@usuario.alteration_date_text</td>
+                        }
                         <td>
                             <div class="btn-group" role="group">
                                 <a role="button" asp-action="Editar" asp-controller="User" asp-route-id="@usuario.id"

@@ -1,12 +1,7 @@
 using FCX_Labs.Enums;
 using FCX_Labs.Helper;
-using System.ComponentModel.DataAnnotations;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Collections;
 using FCX_Labs.Global.Utilities;
 namespace FCX_Labs.Models
 {
@@ -22,24 +17,9 @@ namespace FCX_Labs.Models
 
         public DateTime insert_date { get; set; }
         public DateTime? alteration_date { get; set; }
+        public string alteration_date_text { get { return Functions.DateTimeToString(alteration_date.GetValueOrDefault()); } }
 
         public virtual List<Person> Person { get; set; }
-
-        public bool PassOk(string senha)
-        {
-            return true;
-            // return password == senha.GerarHash();
-        }
-
-        public void SetSenhaHash()
-        {
-            password = password.GerarHash();
-        }
-
-        public void SetNovaSenha(string novaSenha)
-        {
-            password = novaSenha.GerarHash();
-        }
 
         public string GerarNovaSenha()
         {
